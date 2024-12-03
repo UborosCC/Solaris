@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(to right, rgb(121, 81, 11), rgb(32, 16, 90), rgb(23, 12, 67), rgb(0, 0, 0));
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.greeting-header {
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    margin: 5vh 15vw;
+    padding: 30px 0;
+    border: double 10px black;
+    border-radius: 10px;
+    font-size: 4vw;
+}
+.welcome-txt {
+    color: yellow;
+    font-size: 2vw;
+}
+.solsystem {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+}
+.circleman {
+    margin: 20px;
+    margin-bottom: 0;
+}
