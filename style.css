@@ -4,28 +4,59 @@
     box-sizing: border-box;
 }
 body {
-    height: 100%;
-    width: 100%;
+    min-height: 95vh;
+    min-width: 100vw;
     background-image: linear-gradient(to right, rgb(121, 81, 11), rgb(32, 16, 90), rgb(23, 12, 67), rgb(0, 0, 0));
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 }
 .greeting-header {
-    display: flex;
-    align-items: center;
-    flex-flow: column;
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     margin: 5vh 15vw;
-    padding: 30px 0;
+    padding: 15px 0;
     border: double 10px black;
     border-radius: 10px;
-    font-size: 4vw;
+    text-align: center;
 }
 .welcome-txt {
     color: yellow;
+    font-size: 4vw;
+}
+.input, #searchButton {
+    padding: 0 1vw;
+    width: 20vw;
+    height: 6vh;
+    border: ridge 0.5vh yellow;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    vertical-align: middle;
+    font-size: 1vw;
+}
+.input:focus {
+    outline: none;
+}
+#searchButton {
+    width: 4vw;
+}
+#searchButton:hover {
+    cursor: pointer;
+    color: yellow;
+    background-color: rgba(200, 200, 200, 0.2);
+}
+#results {
+    margin: 20px 10px;
+    padding: 10px;
+    text-align: left;
+}
+#results h3 {
+    text-align: center;
     font-size: 2vw;
+}
+#results p {
+    margin: 10px;
+    font-size: 1vw;
 }
 .solsystem {
     display: flex;
@@ -34,6 +65,21 @@ body {
     align-items: center;
 }
 .circleman {
+    display: flex;
+    flex-flow: column;
     margin: 20px;
     margin-bottom: 0;
+}
+.circleman svg {
+    align-self: center;
+}
+.solarname {
+    align-self: center;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    border: 2px yellow solid;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
 }
