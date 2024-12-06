@@ -10,29 +10,32 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    color: white;
 }
 .greeting-header {
     background-color: rgba(0, 0, 0, 0.5);
-    color: white;
     margin: 5vh 15vw;
     padding: 15px 0;
-    border: double 10px black;
+    border: double 0.5vw yellow;
     border-radius: 10px;
     text-align: center;
 }
 .welcome-txt {
-    color: yellow;
     font-size: 4vw;
 }
+.search-section {
+    text-align: center;
+}
 .input, #searchButton {
+    display: inline-block;
     padding: 0 1vw;
     width: 20vw;
     height: 6vh;
     border: ridge 0.5vh yellow;
     background-color: rgba(0, 0, 0, 0.5);
-    color: white;
     vertical-align: middle;
     font-size: 1vw;
+    color: white;
 }
 .input:focus {
     outline: none;
@@ -81,5 +84,71 @@ body {
     border: 2px yellow solid;
     border-radius: 5px;
     background-color: black;
-    color: white;
+}
+.select {
+    animation: found 2s forwards;
+}
+.hide {
+    animation: gone 2s forwards;
+    pointer-events: none;
+}
+@keyframes gone {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0.5;
+        transform: scale(0.5);
+        transform-origin: center;
+    }
+}
+@keyframes found {
+    0% {
+        opacity: 0.5;
+        transform: scale(0.5);
+        transform-origin: center;
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+@media screen and (max-width: 1900px) {
+    .solen svg {
+        height: 200px;
+        width: 200px;
+    }
+    .merk svg {
+        height: 20px;
+        width: 20px;
+    }
+    .venus svg {
+        height: 40px;
+        width: 40px;
+    }
+    .jord svg {
+        height: 50px;
+        width: 50px;
+    }
+    .mars svg {
+        height: 30px;
+        width: 30px;
+    }
+    .jupi svg {
+        height: 120px;
+        width: 120px;
+    }
+    .satur svg {
+        height: 80px;
+        width: 80px;
+    }
+    .anus svg {
+        height: 70px;
+        width: 70px;
+    }
+    .nept svg {
+        height: 70px;
+        width: 70px;
+    }
 }

@@ -1,8 +1,10 @@
+const solarButton = document.getElementById("searchButton"); // Hitta Element "searchButton" genom id och deklarera den till solarButton
+const display = document.getElementById("results"); // Hitta Element "results" genom id och deklarera den till display
+const apiUrl = 'https://n5n3eiyjb0.execute-api.eu-north-1.amazonaws.com/bodies'; // Hämtar API URL och deklarera den till apiUrl
+const apiKeyUrl = 'https://n5n3eiyjb0.execute-api.eu-north-1.amazonaws.com/keys'; // Hämtar API Key URL och deklarera den till apiKeyUrl
+let firstSearchLight = true;
+
 async function Fetchdata(){
-    const display = document.getElementById("results"); // Hitta Element "results" genom id och deklarera den till display
-    const solarButton = document.getElementById("searchButton"); // Hitta Element "searchButton" genom id och deklarera den till solarButton
-    const apiUrl = 'https://n5n3eiyjb0.execute-api.eu-north-1.amazonaws.com/bodies'; // Hämtar API URL och deklarera den till apiUrl
-    const apiKeyUrl = 'https://n5n3eiyjb0.execute-api.eu-north-1.amazonaws.com/keys'; // Hämtar API Key URL och deklarera den till apiKeyUrl
     try {
         const keyResponse = await fetch(apiKeyUrl, {    
             method: 'POST', // Hämtar key från Key URL med POST metod
@@ -28,11 +30,10 @@ async function Fetchdata(){
 
         solarButton.addEventListener('click', async () => { //Lägger till en EventListener till button
             const searchInput = document.getElementById('searchInput').value.trim().toLowerCase(); // Hitta Element "searchInput" genom id samt deklarera den till searchInput, ta bort whitespace på input genom "trim()" och omvandlar alla tecken til gemener.
+            const bodies = document.querySelectorAll('.circleman');
             display.textContent = ''; // Fixar att display är tom från börjar och tar bort tidigare sökresultat när man söker nästa resultat.
-            if (!searchInput) {
-                alert('Skriv ner en av himlakropparnas namn'); // Skapar en alert om man lämnar input tom
-                return; 
-            }
+            let found = false;
+
             const solarBody = data.bodies.find(body => 
                 body.name.toLowerCase() === searchInput // Hittar API data genom bodies och 
             );
@@ -60,7 +61,7 @@ async function Fetchdata(){
 
                 desc.style.fontSize = "1.2vw";
                 desc.style.textAlign = "center";
-                display.style.border = "black 10px solid";
+                display.style.border = "yellow 5px double";
                 display.style.backgroundColor = "rgba(0, 0, 0, 0.6)"; //Styla desc och display vid klick av button
 
                 display.appendChild(name);
@@ -72,6 +73,27 @@ async function Fetchdata(){
                 display.appendChild(rotation);
                 display.appendChild(orbitalPeriod);
                 display.appendChild(circumference); //Lägger till h3 och all p in till display
+
+                bodies.forEach(group => {
+                    const name = group.dataset.name;
+
+                    group.classList.remove('hide', 'select');
+
+                    if (name === searchInput) {
+                        if(!firstSearchLight) {
+                        group.classList.add('select');
+                        }
+                        found = true; 
+                    } else {
+                        group.classList.add('hide');
+                    }
+                });
+
+                if (!found) {
+                    alert(`Ingen himmelkropp hittas för "${searchInput}"`)
+                }
+
+                firstSearchLight = false;
             } else {
                     display.textContent = `Ingen data hittades på '${searchInput}'.`; //Om man söker med en fel skriven namn dyker en Error meddelande.  
                 }
