@@ -200,7 +200,7 @@ body {
 /*Media changes*/
 /*Laptop*/
 @media screen and (max-width: 1900px) {
-    /*Solar System SVG height and width change*/
+    /*Solar System .planet height and width change*/
     .solen .planet {
         height: 170px;
         width: 170px;
