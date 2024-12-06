@@ -1,7 +1,7 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /*Ta bort all default margin och padding samt gör box-sizing till border-box*/
 }
 body {
     min-height: 95vh;
@@ -12,6 +12,7 @@ body {
     background-position: center;
     color: white;
 }
+/*header*/
 .greeting-header {
     background-color: rgba(0, 0, 0, 0.5);
     margin: 5vh 15vw;
@@ -21,8 +22,9 @@ body {
     text-align: center;
 }
 .welcome-txt {
-    font-size: 4vw;
+    font-size: 3vw;
 }
+/*Search Input and Button*/
 .search-section {
     text-align: center;
 }
@@ -42,13 +44,17 @@ body {
 }
 #searchButton {
     width: 4vw;
+    line-height: 0;
 }
 #searchButton:hover {
     cursor: pointer;
     color: yellow;
     background-color: rgba(200, 200, 200, 0.2);
 }
+/*Result box*/
 #results {
+    display: inline-block;
+    max-width: 80vw;
     margin: 20px 10px;
     padding: 10px;
     text-align: left;
@@ -59,11 +65,18 @@ body {
 }
 #results p {
     margin: 10px;
-    font-size: 1vw;
+    font-size: 1.1vw;
 }
+#results .desc {
+    font-size: 1.3vw;
+}
+.desc {
+    text-align: center;
+}
+/*The box that contains the solar system and their svg and h2*/
 .solsystem {
     display: flex;
-    flex-flow: row;
+    flex-flow: row wrap;
     justify-content: center;
     align-items: center;
 }
@@ -85,6 +98,7 @@ body {
     border-radius: 5px;
     background-color: black;
 }
+/*Select and hide tags*/
 .select {
     animation: found 2s forwards;
 }
@@ -92,6 +106,7 @@ body {
     animation: gone 2s forwards;
     pointer-events: none;
 }
+/*Animation for select and hide*/
 @keyframes gone {
     0% {
         opacity: 1;
@@ -114,7 +129,10 @@ body {
         transform: scale(1);
     }
 }
+/*Media changes*/
+/*Laptop*/
 @media screen and (max-width: 1900px) {
+    /*Solar System SVG height and width change*/
     .solen svg {
         height: 200px;
         width: 200px;
@@ -150,5 +168,80 @@ body {
     .nept svg {
         height: 70px;
         width: 70px;
+    }
+}
+/*Mobile*/
+@media screen and (max-width: 450px) {
+    /*Header Box border size change*/
+    .greeting-header {
+        border: 2px yellow double;
+    }
+    /*Solat system Box margin change*/
+    .circleman {
+        margin: 0;
+    }
+    /*Solar system SVG height and width change*/
+    .solen svg {
+        height: 50px;
+        width: 50px;
+    }
+    .merk svg {
+        height: 50px;
+        width: 50px;
+    }
+    .venus svg {
+        height: 50px;
+        width: 50px;
+    }
+    .jord svg {
+        height: 50px;
+        width: 50px;
+    }
+    .mars svg {
+        height: 50px;
+        width: 50px;
+    }
+    .jupi svg {
+        height: 50px;
+        width: 50px;
+    }
+    .satur svg {
+        height: 50px;
+        width: 50px;
+    }
+    .anus svg {
+        height: 50px;
+        width: 50px;
+    }
+    .nept svg {
+        height: 50px;
+        width: 50px;
+    }
+    /*Solar system h2 font-size change*/
+    .solarname {
+        font-size: 10px;
+    }
+    /*Result box changes*/
+    #results {
+        margin: 10px;
+        padding: 10px 0;
+    }
+    #results h3 {
+        font-size: 15px;
+    }
+    #results p, #results .desc {
+        font-size: 10px;
+    }
+    /*Input and searchbutton changes*/
+    .input, #searchButton {
+        width: 20vw;
+        height: 5vh;
+        padding: 10px;
+        border: ridge 2px yellow;
+        font-size: 2vw;
+        vertical-align: middle;
+    }
+    #searchButton {
+        width: 10vw;
     }
 }

@@ -1,16 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv"> <!--Sätter språket på elementens innehåll till svenska-->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solaris</title>
-    <script src="app.js" defer></script>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8"> <!--Sätter charset till UTF-8-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--Sätter till viewport-->
+    <title>Solaris</title> <!--Sätter title till 'Solaris'-->
+    <script src="app.js" defer></script> <!--Länkar till app.js-->
+    <link rel="stylesheet" href="style.css"> <!--Länkar till style.css-->
 </head>
 <body>
+    <!--Välkommen header-->
     <header class="greeting-header">
         <h1 class="welcome-txt">- Välkommen till våran solsytem -</h1>
     </header>
+    <!--Solsystem Box-->
     <section class="solsystem">
         <article class="circleman solen" data-name="solen" id="Sol">
             <!-- Solen -->
@@ -58,9 +60,14 @@
             <h2 class="solarname">Neptunus</h2>
         </article>
     </section>
+    <!--Search box-->
     <section class="search-section">
-        <input class="input" id="searchInput" type="text" placeholder="Sök Solsystemet" autocomplete="off">
-        <button id="searchButton">Sök</button>
+        <!--Input och Button Box-->
+        <article>
+            <input class="input" id="searchInput" type="text" placeholder="Sök Solsystemet" autocomplete="off">
+            <button id="searchButton">Sök</button>
+        </article>
+        <!--Resultat Box-->
         <article id="results"></article>
     </section>
 </body>

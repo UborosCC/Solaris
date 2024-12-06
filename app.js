@@ -2,7 +2,7 @@ const solarButton = document.getElementById("searchButton"); // Hitta Element "s
 const display = document.getElementById("results"); // Hitta Element "results" genom id och deklarera den till display
 const apiUrl = 'https://n5n3eiyjb0.execute-api.eu-north-1.amazonaws.com/bodies'; // Hämtar API URL och deklarera den till apiUrl
 const apiKeyUrl = 'https://n5n3eiyjb0.execute-api.eu-north-1.amazonaws.com/keys'; // Hämtar API Key URL och deklarera den till apiKeyUrl
-let firstSearchLight = true;
+let firstSearchLight = true; // Tagga firstSearchLight till true, så att första gången man klicker på sök knappen kommer planeten inte bli taggat med search animation
 
 async function Fetchdata(){
     try {
@@ -32,7 +32,6 @@ async function Fetchdata(){
             const searchInput = document.getElementById('searchInput').value.trim().toLowerCase(); // Hitta Element "searchInput" genom id samt deklarera den till searchInput, ta bort whitespace på input genom "trim()" och omvandlar alla tecken til gemener.
             const bodies = document.querySelectorAll('.circleman');
             display.textContent = ''; // Fixar att display är tom från börjar och tar bort tidigare sökresultat när man söker nästa resultat.
-            let found = false;
 
             const solarBody = data.bodies.find(body => 
                 body.name.toLowerCase() === searchInput // Hittar API data genom bodies och 
@@ -55,12 +54,11 @@ async function Fetchdata(){
                 tempnight.textContent = 'Temperaturen på natten: ' + solarBody.temp.night + "°C";
                 moons.textContent = 'Antal månar: ' + solarBody.moons.length;
                 distance.textContent = 'Avstånd från Solen: ' + solarBody.distance + " km";
-                rotation.textContent = 'Längd på dygn i antal jorddygn runt sin egen axel: ' + solarBody.rotation;
+                rotation.textContent = 'Antal jorddygn runt sin egen axel: ' + solarBody.rotation;
                 orbitalPeriod.textContent = 'Antal jorddygn runt solen: ' + solarBody.orbitalPeriod;
                 circumference.textContent = 'Omkretsen: ' + solarBody.circumference + " km"; //Lägger till text och API data från solarBody genom textContent till h3 och p 
 
-                desc.style.fontSize = "1.2vw";
-                desc.style.textAlign = "center";
+                desc.classList.add('desc');
                 display.style.border = "yellow 5px double";
                 display.style.backgroundColor = "rgba(0, 0, 0, 0.6)"; //Styla desc och display vid klick av button
 
@@ -74,26 +72,20 @@ async function Fetchdata(){
                 display.appendChild(orbitalPeriod);
                 display.appendChild(circumference); //Lägger till h3 och all p in till display
 
-                bodies.forEach(group => {
-                    const name = group.dataset.name;
+                bodies.forEach(group => { //Group ska innebära varje inviduella element i bodies
+                    const name = group.dataset.name; //Deklarerar varje groups data-name namn till name 
 
-                    group.classList.remove('hide', 'select');
+                    group.classList.remove('hide', 'select'); //Återställer allt class på början
 
-                    if (name === searchInput) {
-                        if(!firstSearchLight) {
-                        group.classList.add('select');
+                    if (name === searchInput) { //Om name är lika med value inne i searchInput 
+                        if(!firstSearchLight) { //Bara när firstSearchLight är false kommer det här köras
+                        group.classList.add('select'); //Lägger till class 'select' till valda planeten/solen
                         }
-                        found = true; 
                     } else {
-                        group.classList.add('hide');
+                        group.classList.add('hide'); //Lägger till class 'hide' till alla andra planter/solen 
                     }
                 });
-
-                if (!found) {
-                    alert(`Ingen himmelkropp hittas för "${searchInput}"`)
-                }
-
-                firstSearchLight = false;
+                firstSearchLight = false; //Sätter firstSearchLight till false efter första sök har gått igenom, det gör så att resten av tiden så kommer 'select' class att läggas till valda planeten/solen 
             } else {
                     display.textContent = `Ingen data hittades på '${searchInput}'.`; //Om man söker med en fel skriven namn dyker en Error meddelande.  
                 }
