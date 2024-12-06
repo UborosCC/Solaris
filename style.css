@@ -135,8 +135,8 @@ body {
 @media screen and (max-width: 1900px) {
     /*Solar System SVG height and width change*/
     .solen svg {
-        height: 180px;
-        width: 180px;
+        height: 170px;
+        width: 170px;
     }
     .merk svg {
         height: 20px;
