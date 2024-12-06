@@ -30,6 +30,7 @@ body {
 }
 .input, #searchButton {
     display: inline-block;
+    margin-top: 10px;
     padding: 0 1vw;
     width: 20vw;
     height: 6vh;
@@ -134,8 +135,8 @@ body {
 @media screen and (max-width: 1900px) {
     /*Solar System SVG height and width change*/
     .solen svg {
-        height: 200px;
-        width: 200px;
+        height: 180px;
+        width: 180px;
     }
     .merk svg {
         height: 20px;
