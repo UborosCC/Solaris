@@ -74,7 +74,7 @@ body {
 .desc {
     text-align: center;
 }
-/*The box that contains the solar system and their svg and h2*/
+/*The box that contains the solar system and their .planet and h2*/
 .solsystem {
     display: flex;
     flex-flow: row wrap;
@@ -87,9 +87,76 @@ body {
     margin: 20px;
     margin-bottom: 0;
 }
-.circleman svg {
+.planet {
     align-self: center;
+    margin: 20px 0;
 }
+.solen .planet {
+    height: 400px;
+    width: 400px;
+    background-color: orange;
+    border-radius: 50%;
+}
+.merk .planet {
+    height: 20px;
+    width: 20px;
+    background-color: grey;
+    border-radius: 50%;
+}
+.venus .planet {
+    height: 40px;
+    width: 40px;
+    background-color: pink;
+    border-radius: 50%;
+}
+.jord .planet {
+    height: 60px;
+    width: 60px;
+    background-color: cornflowerblue;
+    border-radius: 50%;
+}
+.mars .planet {
+    height: 30px;
+    width: 30px;
+    background-color: red;
+    border-radius: 50%;
+}
+.jupi .planet {
+    height: 200px;
+    width: 200px;
+    background-color: coral;
+    border-radius: 50%;
+}
+.satur .planet {
+    position: relative;
+    height: 130px;
+    width: 130px;
+    background-color: burlywood;
+    border-radius: 50%;
+}
+.ring {
+    position: absolute;
+    bottom: -32px;
+    right: 52px;
+    height: 200px;
+    width: 25px;
+    rotate: 30deg;
+    background-color: grey;
+    border-radius: 50%;
+}
+.anus .planet {
+    height: 100px;
+    width: 100px;
+    background-color: white;
+    border-radius: 50%;
+}
+.nept .planet {
+    height: 100px;
+    width: 100px;
+    background-color: slategrey;
+    border-radius: 50%;
+}
+
 .solarname {
     align-self: center;
     margin: 10px;
@@ -134,39 +201,45 @@ body {
 /*Laptop*/
 @media screen and (max-width: 1900px) {
     /*Solar System SVG height and width change*/
-    .solen svg {
+    .solen .planet {
         height: 170px;
         width: 170px;
     }
-    .merk svg {
+    .merk .planet {
         height: 20px;
         width: 20px;
     }
-    .venus svg {
+    .venus .planet {
         height: 40px;
         width: 40px;
     }
-    .jord svg {
+    .jord .planet {
         height: 50px;
         width: 50px;
     }
-    .mars svg {
+    .mars .planet {
         height: 30px;
         width: 30px;
     }
-    .jupi svg {
+    .jupi .planet {
         height: 120px;
         width: 120px;
     }
-    .satur svg {
+    .satur .planet {
         height: 80px;
         width: 80px;
     }
-    .anus svg {
+    .ring {
+        bottom: -25px;
+        right: 30px;
+        height: 130px;
+        width: 15px;
+    }
+    .anus .planet {
         height: 70px;
         width: 70px;
     }
-    .nept svg {
+    .nept .planet {
         height: 70px;
         width: 70px;
     }
@@ -181,40 +254,46 @@ body {
     .circleman {
         margin: 0;
     }
-    /*Solar system SVG height and width change*/
-    .solen svg {
+    /*Solar system .planet height and width change*/
+    .solen .planet {
         height: 50px;
         width: 50px;
     }
-    .merk svg {
+    .merk .planet {
         height: 50px;
         width: 50px;
     }
-    .venus svg {
+    .venus .planet {
         height: 50px;
         width: 50px;
     }
-    .jord svg {
+    .jord .planet {
         height: 50px;
         width: 50px;
     }
-    .mars svg {
+    .mars .planet {
         height: 50px;
         width: 50px;
     }
-    .jupi svg {
+    .jupi .planet {
         height: 50px;
         width: 50px;
     }
-    .satur svg {
+    .satur .planet {
         height: 50px;
         width: 50px;
     }
-    .anus svg {
+    .ring {
+        bottom: -15px;
+        right: 20px;
+        height: 80px;
+        width: 10px;
+    }
+    .anus .planet {
         height: 50px;
         width: 50px;
     }
-    .nept svg {
+    .nept .planet {
         height: 50px;
         width: 50px;
     }
