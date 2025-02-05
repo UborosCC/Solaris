@@ -1,7 +1,7 @@
 const solarButton = document.getElementById("searchButton"); // Hitta Element "searchButton" genom id och deklarera den till solarButton
 const display = document.getElementById("results"); // Hitta Element "results" genom id och deklarera den till display
-const apiUrl = ' https://i4kif2xfk7.execute-api.eu-north-1.amazonaws.com/bodies'; // Hämtar API URL och deklarera den till apiUrl
-const apiKeyUrl = ' https://i4kif2xfk7.execute-api.eu-north-1.amazonaws.com/keys'; // Hämtar API Key URL och deklarera den till apiKeyUrl
+const apiUrl = 'https://i4kif2xfk7.execute-api.eu-north-1.amazonaws.com/bodies'; // Hämtar API URL och deklarera den till apiUrl
+const apiKeyUrl = 'https://i4kif2xfk7.execute-api.eu-north-1.amazonaws.com/keys'; // Hämtar API Key URL och deklarera den till apiKeyUrl
 let firstSearchLight = true; // Tagga firstSearchLight till true, så att första gången man klicker på sök knappen kommer planeten inte bli taggat med search animation
 
 async function Fetchdata(){
